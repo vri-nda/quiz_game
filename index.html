@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Quiz Treasure Hunt</title>
+</head>
+<body>
+    <div id="home-container">
+        <img src="https://play-lh.googleusercontent.com/-dGSUTdes6YTUtZfrtFfTsRPiIMCB8e2ykbhXDCg36qnvxdG_B6G51tNlvm66nPNrg" alt="Treasure Chest" id="treasure-image">
+        <h1 id="quiz-name">Quiz Hunt</h1>
+        <p id="tagline">Welcome Geek</p>
+        <button id="play-now-button" onclick="startQuiz()">Play Now</button>
+    </div>
+
+    <div id="quiz-container" style="display: none;">
+        <div id="question-container">
+            <p id="question-text"></p>
+        </div>
+        <div id="answer-buttons" class="btn-container"></div>
+        <div id="feedback-container"></div>
+        <div id="timer-container">Time Left: <span id="timer"></span></div>
+        <button id="next-button" class="btn" onclick="nextQuestion()">Next</button>
+        <div id="score-container">Score: <span id="score">0</span></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

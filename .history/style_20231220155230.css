@@ -1,0 +1,111 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgrFOqG6PjPhS0sFukUOQzE4GYBe8e7Rw56Q&usqp=CAU') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#home-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 60px rgba(173, 216, 230, 0.5);
+}
+
+#treasure-image {
+    width: 500px;
+    height: 500px;
+}
+
+#quiz-name {
+    font-size: 55px;
+    margin-top: 10px;
+    color: #3498db;
+}
+
+#tagline {
+    font-size: 25px; /* Increased font size for the tagline */
+    color:#DDA0DD;
+    font-style: italic; /* Styled in italic */
+    margin: auto;
+}
+
+
+
+ 
+#play-now-button {
+    background-image: linear-gradient(to right, #2b5876 0%, #4e4376  51%, #2b5876  100%);
+    margin: 20px auto;
+    padding: 15px 50px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 5px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+  
+ 
+
+#play-now-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+
+#quiz-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 60px rgba(173, 216, 230, 0.5);
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+#feedback-container {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#timer-container {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#score-container {
+    margin-top: 20px;
+    font-weight: bold;
+}
