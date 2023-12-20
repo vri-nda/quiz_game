@@ -181,6 +181,6 @@ function endQuiz() {
     questionTextElement.innerText = 'Quiz Completed!';
     answerButtonsElement.innerHTML = '';
     feedbackContainer.innerText = `Your final score is ${score} out of ${quizData.length}`;
-    timerElement.innerText = '';
+    // timerElement.innerText = '';
     document.getElementById('next-button').style.display = 'none';
 }

@@ -58,7 +58,7 @@ body {
  
 
 #play-now-button:hover {
-    background-position: right center; 
+    background-position: right center; /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
 }
@@ -103,10 +103,9 @@ body {
 }
 
 #timer-container {
-    margin-top: 20px;
+    margin-top: 10px;
     font-weight: bold;
-    color:#ca3030;
-    font-size: 30px;
+    color:#eee;
 }
 
 #next-button{
@@ -127,7 +126,7 @@ body {
 }
 
 #next-button:hover {
-    background-position: right center;
+    background-position: right center; /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
 }
@@ -140,8 +139,14 @@ body {
 }
 
 #question-text {
-    font-size: 50px; 
+    font-size: 50px; /* Increased size of questions */
     color: #fff;
 }
 
+/* .timer-icon {
+    margin-right: 5px;
+} */
 
+.timer.animatable > svg > circle + circle {
+    transition: stroke-dashoffset 0.3s ease;
+}

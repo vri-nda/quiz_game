@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: 'Arial', sans-serif;
     text-align: center;
     background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgrFOqG6PjPhS0sFukUOQzE4GYBe8e7Rw56Q&usqp=CAU') no-repeat center center fixed;
@@ -103,10 +103,9 @@ body {
 }
 
 #timer-container {
-    margin-top: 20px;
+    margin-top: 10px;
     font-weight: bold;
-    color:#ca3030;
-    font-size: 30px;
+    color:#eee;
 }
 
 #next-button{
@@ -145,3 +144,55 @@ body {
 }
 
 
+.timer.animatable > svg > circle + circle {
+    transition: stroke-dashoffset 0.3s ease;
+} */
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: #f0f0f0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.timer-container {
+    margin-top: 10px;
+}
+
+.timer-container > svg {
+    width: 200px;
+    height: 200px;
+}
+
+.timer-container > svg > circle {
+    fill: none;
+    stroke-opacity: 0.3;
+    stroke: #3498db;
+    stroke-width: 10;
+    transform-origin: center center;
+    transform: rotate(-90deg);
+}
+
+.timer-container > svg > circle + circle {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    stroke-linecap: round;
+    stroke-opacity: 1;
+}
+
+.timer-container.animatable > svg > circle + circle {
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.timer-container > svg > text {
+    font-size: 2rem;
+}
+
+.timer-container > svg > text + text {
+    font-size: 1rem;
+}

@@ -68,23 +68,28 @@ const quizData = [
 
 let currentQuestionIndex = 0;
 let score = 0;
+let timeLeft = 30;
 let timer;
 
 const questionTextElement = document.getElementById('question-text');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const feedbackContainer = document.getElementById('feedback-container');
 const timerElement = document.getElementById('timer');
+// const timerElement = document.getElementById('timeLeft');
 const scoreElement = document.getElementById('score');
 const homeContainer = document.getElementById('home-container');
 const quizContainer = document.getElementById('quiz-container');
+
+
 
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     showQuestion(quizData[currentQuestionIndex]);
-    startTimer(30); // Set the timer duration in seconds
+    runTimer(30); // Set the timer duration in seconds
     homeContainer.style.display = 'none';
     quizContainer.style.display = 'block';
+    
 }
 
 function showQuestion(question) {
@@ -163,16 +168,18 @@ function startTimer(seconds) {
             disableButtons();
             feedbackContainer.innerText = 'Time is up!';
             document.getElementById('next-button').disabled = false;
+            highlightCorrectAnswer();
         }
     }, 1000);
 }
+
 
 function nextQuestion() {
     currentQuestionIndex++;
     if (currentQuestionIndex < quizData.length) {
         showQuestion(quizData[currentQuestionIndex]);
         feedbackContainer.innerText = '';
-        startTimer(30); // Reset timer for the next question
+        runTimer(30); // Reset timer for the next question
         document.getElementById('next-button').disabled = true;
     }
 }
@@ -184,3 +191,14 @@ function endQuiz() {
     timerElement.innerText = '';
     document.getElementById('next-button').style.display = 'none';
 }
+
+function highlightCorrectAnswer() {
+    const correctAnswerElement = Array.from(answerButtonsElement.children).find(child => {
+        const answer = quizData[currentQuestionIndex].answers.find(ans => ans.correct).text;
+        return child.innerText === answer;
+    });
+    correctAnswerElement.style.backgroundColor = '#3498db'; // Change to the desired color
+    correctAnswerElement.style.color = '#fff';
+}
+
+

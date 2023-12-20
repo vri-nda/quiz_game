@@ -103,10 +103,9 @@ body {
 }
 
 #timer-container {
-    margin-top: 20px;
+    margin-top: 10px;
     font-weight: bold;
-    color:#ca3030;
-    font-size: 30px;
+    color:#eee;
 }
 
 #next-button{
@@ -145,3 +144,28 @@ body {
 }
 
 
+/* .timer.animatable > svg > circle + circle {
+    transition: stroke-dashoffset 0.3s ease;
+}  */
+
+.timer-container {
+    margin-top: 10px;
+}
+
+.timer-container > svg {
+    width: 200px;
+    height: 200px;
+}
+
+.timer-container > svg > circle {
+    fill: none;
+    stroke-opacity: 0.3;
+    stroke: #3498db;
+    stroke-width: 10;
+}
+ 
+
+
+
+
+ 

@@ -68,12 +68,14 @@ const quizData = [
 
 let currentQuestionIndex = 0;
 let score = 0;
+let timeLeft = 60; // Initial time in seconds
 let timer;
 
 const questionTextElement = document.getElementById('question-text');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const feedbackContainer = document.getElementById('feedback-container');
-const timerElement = document.getElementById('timer');
+// const timerElement = document.getElementById('timer');
+const timerElement = document.getElementById('timeLeft');
 const scoreElement = document.getElementById('score');
 const homeContainer = document.getElementById('home-container');
 const quizContainer = document.getElementById('quiz-container');
@@ -82,7 +84,7 @@ function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     showQuestion(quizData[currentQuestionIndex]);
-    startTimer(30); // Set the timer duration in seconds
+    startTimer(60); // Set the timer duration in seconds
     homeContainer.style.display = 'none';
     quizContainer.style.display = 'block';
 }
@@ -172,7 +174,7 @@ function nextQuestion() {
     if (currentQuestionIndex < quizData.length) {
         showQuestion(quizData[currentQuestionIndex]);
         feedbackContainer.innerText = '';
-        startTimer(30); // Reset timer for the next question
+        startTimer(60); // Reset timer for the next question
         document.getElementById('next-button').disabled = true;
     }
 }

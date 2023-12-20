@@ -21,7 +21,17 @@
         </div>
         <div id="answer-buttons" class="btn-container"></div>
         <div id="feedback-container"></div>
-        <div id="timer-container">Time Left: <span id="timer"></span></div>
+
+        <div class="timer animatable">
+            <svg>
+                <circle cx="50%" cy="50%" r="90"/>
+                <circle cx="50%" cy="50%" r="90" pathLength="1" />
+                <text x="100" y="100" text-anchor="middle"><tspan id="timeLeft"></tspan></text>
+                <text x="100" y="120" text-anchor="middle">seconds</text>
+            </svg>
+        </div>
+        
+
         <button id="next-button" class="btn hidden" onclick="nextQuestion()">Next</button>
         <div id="score-container" class="hidden">Score: <span id="score">0</span></div>
     </div>

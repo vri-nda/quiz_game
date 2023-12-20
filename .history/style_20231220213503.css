@@ -103,10 +103,9 @@ body {
 }
 
 #timer-container {
-    margin-top: 20px;
+    margin-top: 10px;
     font-weight: bold;
-    color:#ca3030;
-    font-size: 30px;
+    color:#eee;
 }
 
 #next-button{
@@ -145,3 +144,80 @@ body {
 }
 
 
+/* .timer-container {
+    margin-top: 10px;
+}
+
+.timer-container > svg {
+    width: 200px;
+    height: 200px;
+}
+
+.timer-container > svg > circle {
+    fill: none;
+    stroke-opacity: 0.3;
+    stroke: #FF69B4;
+    stroke-width: 10;
+    transform-origin: center center;
+    transform: rotate(-90deg);
+}
+
+.timer-container > svg > circle + circle {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    stroke-linecap: round;
+    stroke-opacity: 1;
+}
+
+.timer-container.animatable > svg > circle + circle {
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.timer-container > svg > text {
+    font-size: 2rem;
+}
+
+.timer-container > svg > text + text {
+    font-size: 1rem;
+} 
+ */
+
+
+ .timer {
+    margin-top: 10px;
+}
+  
+.timer > svg {
+    width: 200px;
+    height: 200px;
+}
+
+.timer > svg > circle {
+    fill: none;
+    stroke-opacity: 0.3;
+    stroke: #FF69B4; /* Change the color as needed */
+    stroke-width: 10;
+    transform-origin: center center;
+    transform: rotate(-90deg);
+}
+
+.timer > svg > circle + circle {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    stroke-linecap: round;
+    stroke-opacity: 1;
+}
+
+.timer.animatable > svg > circle + circle {
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.timer > svg > text {
+    font-size: 2rem;
+}
+
+.timer > svg > text + text {
+    font-size: 1rem;
+}
+
+ 

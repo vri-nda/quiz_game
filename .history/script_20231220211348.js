@@ -68,15 +68,27 @@ const quizData = [
 
 let currentQuestionIndex = 0;
 let score = 0;
+// let timeLeft = 30;
 let timer;
+
+// const questionTextElement = document.getElementById('question-text');
+// const answerButtonsElement = document.getElementById('answer-buttons');
+// const feedbackContainer = document.getElementById('feedback-container');
+// const timerElement = document.getElementById('timer');
+// // const timerElement = document.getElementById('timeLeft');
+// const scoreElement = document.getElementById('score');
+// const homeContainer = document.getElementById('home-container');
+// const quizContainer = document.getElementById('quiz-container');
 
 const questionTextElement = document.getElementById('question-text');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const feedbackContainer = document.getElementById('feedback-container');
-const timerElement = document.getElementById('timer');
+const timerContainer = document.querySelector('.timer-container');
+const timerElement = document.getElementById('timeLeft');
 const scoreElement = document.getElementById('score');
 const homeContainer = document.getElementById('home-container');
 const quizContainer = document.getElementById('quiz-container');
+
 
 function startQuiz() {
     currentQuestionIndex = 0;
@@ -85,6 +97,7 @@ function startQuiz() {
     startTimer(30); // Set the timer duration in seconds
     homeContainer.style.display = 'none';
     quizContainer.style.display = 'block';
+    
 }
 
 function showQuestion(question) {
@@ -153,19 +166,44 @@ function updateScore() {
     scoreElement.innerText = score;
 }
 
+// function startTimer(seconds) {
+//     let time = seconds;
+//     timer = setInterval(() => {
+//         timerElement.innerText = time;
+//         time--;
+//         if (time < 0) {
+//             clearInterval(timer);
+//             disableButtons();
+//             feedbackContainer.innerText = 'Time is up!';
+//             document.getElementById('next-button').disabled = false;
+//             highlightCorrectAnswer();
+//         }
+//     }, 1000);
+// }
+
+function isTimeLeft() {
+    return time > 0;
+}
+
 function startTimer(seconds) {
     let time = seconds;
     timer = setInterval(() => {
-        timerElement.innerText = time;
-        time--;
-        if (time < 0) {
+        if (isTimeLeft()) {
+            const timeRemaining = time--;
+            const normalizedTime = (30 - timeRemaining) / 30;
+            document.getElementById('timer-progress').style.strokeDashoffset = normalizedTime;
+            document.getElementById('timeLeft').textContent = timeRemaining;
+        } else {
             clearInterval(timer);
+            timerContainer.classList.remove('animatable');
             disableButtons();
             feedbackContainer.innerText = 'Time is up!';
             document.getElementById('next-button').disabled = false;
+            highlightCorrectAnswer();
         }
     }, 1000);
 }
+
 
 function nextQuestion() {
     currentQuestionIndex++;
@@ -184,3 +222,14 @@ function endQuiz() {
     timerElement.innerText = '';
     document.getElementById('next-button').style.display = 'none';
 }
+
+function highlightCorrectAnswer() {
+    const correctAnswerElement = Array.from(answerButtonsElement.children).find(child => {
+        const answer = quizData[currentQuestionIndex].answers.find(ans => ans.correct).text;
+        return child.innerText === answer;
+    });
+    correctAnswerElement.style.backgroundColor = '#3498db'; // Change to the desired color
+    correctAnswerElement.style.color = '#fff';
+}
+
+

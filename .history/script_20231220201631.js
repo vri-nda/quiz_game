@@ -68,12 +68,14 @@ const quizData = [
 
 let currentQuestionIndex = 0;
 let score = 0;
+let timeLeft = 30;
 let timer;
 
 const questionTextElement = document.getElementById('question-text');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const feedbackContainer = document.getElementById('feedback-container');
 const timerElement = document.getElementById('timer');
+// const timerElement = document.getElementById('timeLeft');
 const scoreElement = document.getElementById('score');
 const homeContainer = document.getElementById('home-container');
 const quizContainer = document.getElementById('quiz-container');
@@ -85,6 +87,7 @@ function startQuiz() {
     startTimer(30); // Set the timer duration in seconds
     homeContainer.style.display = 'none';
     quizContainer.style.display = 'block';
+    
 }
 
 function showQuestion(question) {
@@ -184,3 +187,7 @@ function endQuiz() {
     timerElement.innerText = '';
     document.getElementById('next-button').style.display = 'none';
 }
+
+
+
+
