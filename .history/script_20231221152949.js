@@ -91,6 +91,35 @@ function showQuestion(question) {
 }
 
 
+// function selectAnswer(answer) {
+//     const correctAnswer = quizData[currentQuestionIndex].answers.find(ans => ans.correct);
+//     const selectedButton = Array.from(answerButtonsElement.children).find(child => child.innerText === answer.text);
+
+//     if (answer.correct) {
+//         score++;
+//         feedbackContainer.innerText = 'Correct!';
+//         selectedButton.style.backgroundColor = '#3498db'; // Change to the desired color
+//         selectedButton.style.color = '#fff';
+//     } else {
+//         feedbackContainer.innerText = `Incorrect! The correct answer is: ${correctAnswer.text}`;
+//         selectedButton.style.backgroundColor = '#e74c3c'; // Change to the desired color for incorrect answers
+//         selectedButton.style.color = '#fff';
+
+//         const correctButton = Array.from(answerButtonsElement.children).find(child => child.innerText === correctAnswer.text);
+//         correctButton.style.backgroundColor = '#3498db'; // Change to the desired color for correct answers
+//         correctButton.style.color = '#fff';
+//     }
+
+//     disableButtons();
+//     updateScore();
+//     clearInterval(timer);
+//     if (currentQuestionIndex < quizData.length - 1) {
+//         document.getElementById('next-button').disabled = false;
+//     } else {
+//         endQuiz();
+//     }
+// }
+
 function selectAnswer(answer) {
     const correctAnswer = quizData[currentQuestionIndex].answers.find(ans => ans.correct);
     const selectedButton = Array.from(answerButtonsElement.children).find(child => child.innerText === answer.text);
@@ -111,15 +140,13 @@ function selectAnswer(answer) {
     }
 
     disableButtons();
-    updateScore();
+    updateScore(); // Update the score only when the answer is correct
     clearInterval(timer);
 
     if (currentQuestionIndex < quizData.length - 1) {
         document.getElementById('next-button').disabled = false;
     } else {
-        // If it's the last question, display feedback before moving to the final score
-        feedbackContainer.innerText += `\nThe correct answer is: ${correctAnswer.text}`;
-        setTimeout(() => endQuiz(), 2000); // Display feedback for 2 seconds before moving to the final score
+        endQuiz();
     }
 }
 

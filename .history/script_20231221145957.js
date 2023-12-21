@@ -9,15 +9,6 @@ const quizData = [
         ]
     },
     {
-        question: "What is the purpose of CSS?",
-        answers: [
-            { text: "To provide interactivity on a website", correct: false },
-            { text: "To style the visual presentation of a web page", correct: true },
-            { text: "To define server-side logic", correct: false },
-            { text: "To handle database operations", correct: false }
-        ]
-    },
-    {
         question: "What does the term 'API' stand for?",
         answers: [
             { text: "Advanced Programming Interface", correct: false },
@@ -33,24 +24,6 @@ const quizData = [
             { text: "SVN", correct: false },
             { text: "Mercurial", correct: false },
             { text: "Perforce", correct: false }
-        ]
-    },
-    {
-        question: "What is the purpose of the 'npm' package manager in JavaScript?",
-        answers: [
-            { text: "To manage network protocols", correct: false },
-            { text: "To manage JavaScript packages and dependencies", correct: true },
-            { text: "To create graphical user interfaces", correct: false },
-            { text: "To execute SQL queries", correct: false }
-        ]
-    },
-    {
-        question: "What is the role of a 'function' in programming?",
-        answers: [
-            { text: "To store data", correct: false },
-            { text: "To perform a specific task or calculation", correct: true },
-            { text: "To represent a database table", correct: false },
-            { text: "To define the structure of a webpage", correct: false }
         ]
     },
    
@@ -98,31 +71,27 @@ function selectAnswer(answer) {
     if (answer.correct) {
         score++;
         feedbackContainer.innerText = 'Correct!';
-        selectedButton.style.backgroundColor = '#3498db';
+        selectedButton.style.backgroundColor = '#3498db'; // Change to the desired color
         selectedButton.style.color = '#fff';
     } else {
         feedbackContainer.innerText = `Incorrect! The correct answer is: ${correctAnswer.text}`;
-        selectedButton.style.backgroundColor = '#e74c3c';
+        selectedButton.style.backgroundColor = '#e74c3c'; // Change to the desired color for incorrect answers
         selectedButton.style.color = '#fff';
 
         const correctButton = Array.from(answerButtonsElement.children).find(child => child.innerText === correctAnswer.text);
-        correctButton.style.backgroundColor = '#3498db';
+        correctButton.style.backgroundColor = '#3498db'; // Change to the desired color for correct answers
         correctButton.style.color = '#fff';
     }
 
     disableButtons();
     updateScore();
     clearInterval(timer);
-
     if (currentQuestionIndex < quizData.length - 1) {
         document.getElementById('next-button').disabled = false;
     } else {
-        // If it's the last question, display feedback before moving to the final score
-        feedbackContainer.innerText += `\nThe correct answer is: ${correctAnswer.text}`;
-        setTimeout(() => endQuiz(), 2000); // Display feedback for 2 seconds before moving to the final score
+        endQuiz();
     }
 }
-
 
 function getCorrectAnswer() {
     return quizData[currentQuestionIndex].answers.find(answer => answer.correct).text;
@@ -172,18 +141,9 @@ function nextQuestion() {
     }
 }
 
-// function endQuiz() {
-//     questionTextElement.innerText = 'Quiz Completed!';
-//     answerButtonsElement.innerHTML = '';
-//     feedbackContainer.innerText = `Your final score is ${score} out of ${quizData.length}`;
-//     timerElement.innerText = '';
-//     document.getElementById('next-button').style.display = 'none';
-// }
-
 function endQuiz() {
     questionTextElement.innerText = 'Quiz Completed!';
     answerButtonsElement.innerHTML = '';
-    updateScore(); // Update the score before displaying the final feedback
     feedbackContainer.innerText = `Your final score is ${score} out of ${quizData.length}`;
     timerElement.innerText = '';
     document.getElementById('next-button').style.display = 'none';
